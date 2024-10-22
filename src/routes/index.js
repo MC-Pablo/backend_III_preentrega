@@ -1,7 +1,7 @@
 import { Router } from "express";
-import usersRouter from "./users.router.js";
-import sessionsRouter from "./sessions.router.js";
-import mocksRouter from "./mock.router.js";
+import usersRouter from "./users.route.js";
+import sessionsRouter from "./sessions.route.js";
+import mocksRouter from "./mocks.route.js";
 
 const router = Router();
 router.use("/api/users", usersRouter);

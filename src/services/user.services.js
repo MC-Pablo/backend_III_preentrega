@@ -1,6 +1,6 @@
-import Users from "../dao/users.dao.js";
+import Users from "../dao/user.dao.js";
 import { CustomError } from "../errors/custom.error.js";
-import { GenerateUsersMock } from "../mocks/user.mock.js";
+import { generateUsersMock } from "../mocks/user.mock.js";
 
 export class UserServices {
   constructor() {
@@ -35,7 +35,7 @@ export class UserServices {
     return "ok";
   }
   async createMocks() {
-    const users = GenerateUsersMock(10);
+    const users = generateUsersMock(10);
     const usersDb = await this.userDao.saveMany(users);
     return usersDb;
   }

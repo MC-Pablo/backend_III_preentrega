@@ -1,4 +1,4 @@
-import { createHash, passwordValidation } from "../utils/security.js";
+import { createHash, isValidPassword } from "../utils/security.js";
 import jwt from "jsonwebtoken";
 import UserDTO from "../dto/user.dto.js";
 import { UserServices } from "../services/user.services.js";
@@ -46,8 +46,8 @@ export class SessionsController {
         return res
           .status(404)
           .send({ status: "error", error: "User doesn't exist" });
-      const isValidPassword = await passwordValidation(user, password);
-      if (!isValidPassword)
+      const validPassword = await isValidPassword(user, password);
+      if (validPassword)
         return res
           .status(400)
           .send({ status: "error", error: "Incorrect password" });
@@ -83,8 +83,8 @@ export class SessionsController {
         return res
           .status(404)
           .send({ status: "error", error: "User doesn't exist" });
-      const isValidPassword = await passwordValidation(user, password);
-      if (!isValidPassword)
+      const validPassword = await isValidPassword(user, password);
+      if (validPassword)
         return res
           .status(400)
           .send({ status: "error", error: "Incorrect password" });

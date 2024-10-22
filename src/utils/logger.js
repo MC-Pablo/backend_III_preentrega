@@ -7,7 +7,7 @@ const customFormat = printf(({ level, message, timestamp }) => {
   return `${timestamp} [${level}]: ${message}`;
 });
 
-export const logger = createLogger({
+export const Logger = createLogger({
   level: "info", // Nivel mínimo de log
   format: combine(
     colorize(),

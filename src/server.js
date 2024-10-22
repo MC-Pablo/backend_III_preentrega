@@ -8,7 +8,7 @@ import { Logger } from "./utils/logger.js";
 
 connectDB();
 const server = express();
-app.use("/api", router);
+server.use("/api", router);
 // Decodificadores del BODY
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
