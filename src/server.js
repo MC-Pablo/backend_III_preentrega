@@ -5,9 +5,11 @@ import router from "./routes/index.js";
 
 import { errorHandler } from "./errors/errHandler.js";
 import { Logger } from "./utils/logger.js";
+import { config as DotEnv } from "./config/dotenv.config.js";
 
-connectDB();
 const server = express();
+DotEnv();
+connectDB();
 server.use("/api", router);
 // Decodificadores del BODY
 server.use(express.urlencoded({ extended: true }));

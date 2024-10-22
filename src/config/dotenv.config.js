@@ -1,6 +1,8 @@
 import dotenv from "dotenv";
-import { paths } from "../utils";
+import path from "path";
 
 export const config = () => {
-    dotenv.config(paths.env);
+    const p = path.join(path.dirname(""), ".env")
+    console.log(p)
+    dotenv.config(p);
 };
