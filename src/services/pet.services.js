@@ -1,4 +1,5 @@
 import Pet from "../dao/pet.dao.js";
+import { generatePetsMock } from "../mocks/pet.mock.js";
 
 export class PetServices {
   constructor() {
@@ -31,5 +32,10 @@ export class PetServices {
   async remove(id) {
     await this.petDao.delete(id);
     return "ok";
+  }
+  async createMocks() {
+    const pets = generatePetsMock(10);
+    const petsDb = await this.petDao.saveMany(pets);
+    return petsDb;
   }
 };

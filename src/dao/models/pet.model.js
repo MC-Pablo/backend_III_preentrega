@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+import { Schema, model } from "mongoose";
 
-const collection = 'Pets';
 
-const schema = new mongoose.Schema({
+
+const petSchema = new Schema({
     name:{
         type:String,
         required:true,
@@ -23,6 +23,6 @@ const schema = new mongoose.Schema({
     image:String
 })
 
-const petModel = mongoose.model(collection,schema);
+const petModel = model("pets", petSchema);
 
 export default petModel;
